@@ -1,0 +1,12 @@
+window_sizes 1280 776 205 1069 613 89
+diagrams
+  active  classdiagram_ref 128002 // mandebrot_class_diagram
+    847 541 100 4 0 0
+end
+show_stereotypes
+selected 
+  package_ref 129 // bouml
+open
+  classview_ref 128002 // mandelbrot_class_view
+end
+end
