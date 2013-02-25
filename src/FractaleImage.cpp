@@ -7,12 +7,24 @@
 
 #include "FractaleImage.h"
 
-FractaleImage::FractaleImage() {
-	// TODO Auto-generated constructor stub
+/**
+ * Constructor
+ * Allocates memory for the pixels.
+ * @param width of the image
+ * @param height of the image
+ */
+FractaleImage::FractaleImage(uint32_t width,
+	      uint32_t height) {
+
+	// Allocate memory for the pixel tab
+	pixels = new sf::Uint8[4 * width * height];
 
 }
 
 FractaleImage::~FractaleImage() {
-	// TODO Auto-generated destructor stub
+
+	// Deallocate memory
+	delete [] pixels;
+
 }
 

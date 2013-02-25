@@ -9,17 +9,39 @@
 #define FRACTALEIMAGE_H_
 
 #include <SFML/Graphics.hpp>
+#include <stdint.h>
 
+/**
+ * Contains fractal pixels tab and methods
+ * for setting pixels.
+ */
 class FractaleImage {
 public:
-	FractaleImage();
+
+    /**
+     * Constructor
+     * Allocates memory for the pixels.
+     * @param width of the image
+     * @param height of the image
+     */
+	FractaleImage(uint32_t width,
+			      uint32_t height);
+
+	/**
+	 * Destructor.
+	 * Deallocates pixels tab.
+	 */
 	virtual ~FractaleImage();
 
 private:
-	sf::Image df;
-	sf::Sprite dd;
 
+	sf::Image image;
+	sf::Sprite sprite;
 
+	/**
+	 * pixels tab
+	 */
+	sf::Uint8 * pixels;
 };
 
 #endif /* FRACTALEIMAGE_H_ */
