@@ -1,6 +1,6 @@
 format 74
 "bouml"
-  revision 2
+  revision 3
   modified_by 2 "oussama"
 
 
@@ -57,7 +57,7 @@ format 74
       size A4
     end
 
-    class 128002 "dd"
+    class 128002 "FractaleImage"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
