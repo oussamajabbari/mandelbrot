@@ -1,7 +1,7 @@
 /*
  * FractaleImage.h
  *
- *  Created on: 24 févr. 2013
+ *  Created on: 24 fevr. 2013
  *      Author: oussama
  */
 

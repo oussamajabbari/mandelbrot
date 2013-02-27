@@ -1,7 +1,7 @@
 /*
  * FractaleImage.cpp
  *
- *  Created on: 24 févr. 2013
+ *  Created on: 24 fevr. 2013
  *      Author: oussama
  */
 
@@ -21,6 +21,10 @@ FractaleImage::FractaleImage(uint32_t width,
 
 }
 
+/**
+ * Destructor.
+ * Deallocates pixels tab.
+ */
 FractaleImage::~FractaleImage() {
 
 	// Deallocate memory
