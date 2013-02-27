@@ -1,16 +1,13 @@
 cmake_minimum_required(VERSION 2.6)
 
+set (PROJECT_NAME mandelbrot)
+set (EXECUTABLE_NAME ${PROJECT_NAME})
+
 # Declaration du projet
-project(mandelbrot)
+project(${PROJECT_NAME})
 
 # Path de l'executable
 set(EXECUTABLE_OUTPUT_PATH bin/${CMAKE_BUILD_TYPE})
-
-# Includes Path
-include_directories(${SFML_DIR}/include)
-
-# Link directory
-link_directories(${SFML_DIR}/lib)
 
 # Generation de la liste des fichiers sources
 file(
@@ -21,14 +18,19 @@ file(
 
 # Declaration de l'executable
 add_executable(
-        mandelbrot
+        ${EXECUTABLE_NAME}
         ${source_files}
 )
 
-# link definition
-target_link_libraries(
-        mandelbrot
-        sfml-graphics
-        sfml-window
-        sfml-system
-)
+# Detect and add SFML
+set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})
+
+#Find any version 1.6 of SFML
+#See the FindSFML.cmake file for additional details and instructions
+find_package(SFML 1.6 REQUIRED system window graphics)
+
+if(SFML_FOUND)
+  include_directories(${SFML_INCLUDE_DIR})
+  target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES})
+endif()
+
