@@ -7,7 +7,10 @@
 
 #include "FractaleWindow.h"
 
-FractaleWindow::FractaleWindow() {
+/**
+ * Constructor
+ */
+FractaleWindow::FractaleWindow(int a) {
 	// TODO Auto-generated constructor stub
 
 }
