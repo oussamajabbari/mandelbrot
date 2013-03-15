@@ -42,16 +42,15 @@ public:
 private:
 
 	/**
-	 * This will contain the fractale image.
+	 * This will contain the fractal image.
 	 */
 	FractaleImage fractaleImage;
 
 	/**
 	 * This is the main SFML rendering window.
 	 */
-	RenderWindow app();
-	//RenderWindow app(VideoMode(width, height, 32),
-    //        "Mon superbe polygone SFML !");
+	RenderWindow app;
+
 };
 
 #endif /* FRACTALEWINDOW_H_ */

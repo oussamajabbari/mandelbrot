@@ -10,17 +10,21 @@
 /**
  * Constructor
  */
-FractaleWindow::FractaleWindow(int a) {
-	// TODO Auto-generated constructor stub
-
+FractaleWindow::FractaleWindow(int a) :
+    fractaleImage(width, height), app(VideoMode(width, height, 32), "Une belle fractale")
+{
 }
 
+/**
+ * Destructor
+ */
 FractaleWindow::~FractaleWindow() {
-	// TODO Auto-generated destructor stub
 }
 
+/**
+ * Main method.
+ * Opens window and does main sfml loop.
+ */
 void FractaleWindow::run() {
-
-
 
 }
