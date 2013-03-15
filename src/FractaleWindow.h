@@ -26,7 +26,7 @@ public:
 	/**
 	 * Constructor
 	 */
-	FractaleWindow(int a);
+	FractaleWindow();
 
 	/**
 	 * Destructor
