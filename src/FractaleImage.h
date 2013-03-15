@@ -49,6 +49,12 @@ public:
 			      sf::Uint32 yPos,
 			      sf::Color color) throw(out_of_range);
 
+	/**
+	 * Draws the fractal image to the SFML window.
+	 * @param window
+	 */
+	void Draw(sf::RenderWindow& window);
+
 private:
 
 	/**

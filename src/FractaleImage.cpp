@@ -69,3 +69,16 @@ void FractaleImage::setPixel(sf::Uint32 xPos, sf::Uint32 yPos,
 		pixels[4 * (yPos * width + xPos) + 3] = color.a;   // A
 	}
 }
+
+/**
+ * Draws the fractal image to the SFML window.
+ * @param window
+ */
+void FractaleImage::Draw(sf::RenderWindow& window) {
+
+	// Loads pixels tab to SFML Image object.
+	image.LoadFromPixels(width, height, pixels);
+
+	// Draw the image
+	window.Draw(sprite);
+}
