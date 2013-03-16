@@ -67,10 +67,10 @@ void FractaleWindow::run() {
                                   << event.MouseButton.Y
                                   << endl;
 
-                minX = -2.4 + event.MouseButton.X * 3.6 / 800 - (maxX - minX)/3;
-                maxX = -2.4 + event.MouseButton.X * 3.6 / 800 + (maxX - minX)/3;
-                minY = -1.5 + event.MouseButton.Y * 3.0 / 600 - (maxY - minY)/3;
-                maxY = -1.5 + event.MouseButton.Y * 3.0 / 600 + (maxY - minY)/3;
+                minX = minX + event.MouseButton.X * (maxX - minX) / 800 - (maxX - minX)/8;
+                maxX = minX + event.MouseButton.X * (maxX - minX) / 800 + (maxX - minX)/8;
+                minY = minY + event.MouseButton.Y * (maxY - minY) / 600 - (maxY - minY)/8;
+                maxY = minY + event.MouseButton.Y * (maxY - minY) / 600 + (maxY - minY)/8;
 
                 // Calculate, clear and draw
                 fractaleAlgo.calculate(minX, maxX, minY, maxY);
