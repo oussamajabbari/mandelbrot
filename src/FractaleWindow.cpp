@@ -74,7 +74,7 @@ void FractaleWindow::run() {
 
                 // Calculate, clear and draw
                 fractaleAlgo.calculate(minX, maxX, minY, maxY);
-                app.Clear(sf::Color::White);
+                //app.Clear();
                 fractaleImage.Draw();
 
             }

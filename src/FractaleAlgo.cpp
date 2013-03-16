@@ -65,8 +65,8 @@ void FractaleAlgo::calculate(float minX,
             }
 
             if (a == NB_ITERATIONS) {
-                //fractaleImage.setPixel(X, Y, sf::Color(0, 0, (module*255/4) + (4/(module*255)), 255));
-                fractaleImage.setPixel(X, Y, sf::Color(0, 0, module*255/4, 255));
+                fractaleImage.setPixel(X, Y, sf::Color(0, 0, (module*255/4) + (4/(module*255)), 255));
+                //fractaleImage.setPixel(X, Y, sf::Color(0, 0, module*255/4, 255));
                 //fractaleImage.setPixel(X, Y, sf::Color(0, 0, (4/(module*255)), 255));
             }
             else
