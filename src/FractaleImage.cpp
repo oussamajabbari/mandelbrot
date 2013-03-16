@@ -6,6 +6,7 @@
  */
 
 #include <iostream>
+#include <sstream>
 #include "FractaleImage.h"
 
 using namespace std;
@@ -15,11 +16,14 @@ using namespace std;
  * Allocates memory for the pixels.
  * @param width of the image
  * @param height of the image
+ * @param app : SFML main window reference.
  */
 FractaleImage::FractaleImage(sf::Uint32 width,
-		                     sf::Uint32 height) :
+		                     sf::Uint32 height,
+		                     sf::RenderWindow& app) :
 		        width(width),
 		        height(height),
+		        app(app),
 				image(width, height, sf::Color(0, 0, 0)),
 				sprite(image)
 {
@@ -55,12 +59,16 @@ FractaleImage::~FractaleImage() {
 void FractaleImage::setPixel(sf::Uint32 xPos, sf::Uint32 yPos,
 		sf::Color color) throw(out_of_range) {
 
+    ostringstream oss;
+
 	// Check pixel position
 	if (xPos >= width) {
-		throw out_of_range("FractaleImage::setPixel : xPos is out of range : " + xPos);
+	    oss << "FractaleImage::setPixel : xPos is out of range : " << xPos;
+		throw out_of_range(oss.str());
 	}
 	else if (yPos >= height) {
-		throw out_of_range("FractaleImage::setPixel : yPos is out of range : " + yPos);
+	    oss << "FractaleImage::setPixel : yPos is out of range : " << yPos;
+		throw out_of_range(oss.str());
 	}
 	else {
 		pixels[4 * (yPos * width + xPos)]     = color.r;   // R
@@ -72,13 +80,12 @@ void FractaleImage::setPixel(sf::Uint32 xPos, sf::Uint32 yPos,
 
 /**
  * Draws the fractal image to the SFML window.
- * @param window
  */
-void FractaleImage::Draw(sf::RenderWindow& window) {
+void FractaleImage::Draw() {
 
 	// Loads pixels tab to SFML Image object.
 	image.LoadFromPixels(width, height, pixels);
 
 	// Draw the image
-	window.Draw(sprite);
+	app.Draw(sprite);
 }

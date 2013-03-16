@@ -27,9 +27,11 @@ public:
      * Allocates memory for the pixels.
      * @param width of the image
      * @param height of the image
+     * @param app : SFML main window reference.
      */
 	FractaleImage(sf::Uint32 width,
-			      sf::Uint32 height);
+			      sf::Uint32 height,
+			      sf::RenderWindow& app);
 
 	/**
 	 * Destructor.
@@ -51,9 +53,8 @@ public:
 
 	/**
 	 * Draws the fractal image to the SFML window.
-	 * @param window
 	 */
-	void Draw(sf::RenderWindow& window);
+	void Draw();
 
 private:
 
@@ -68,6 +69,11 @@ private:
 	 */
 	sf::Image image;
 	sf::Sprite sprite;
+
+	/**
+	 * SFML main window reference
+	 */
+	sf::RenderWindow& app;
 
 	/**
 	 * pixels tab

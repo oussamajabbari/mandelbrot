@@ -9,6 +9,7 @@
 #define FRACTALEWINDOW_H_
 
 #include "FractaleImage.h"
+#include "FractaleAlgo.h"
 
 namespace {
     const int width = 800;
@@ -41,15 +42,21 @@ public:
 
 private:
 
+    /**
+     * This is the main SFML rendering window.
+     */
+    RenderWindow app;
+
 	/**
 	 * This will contain the fractal image.
 	 */
 	FractaleImage fractaleImage;
 
 	/**
-	 * This is the main SFML rendering window.
+	 * Algo that will calculate the pixels of the fractale
+	 * and fill the image pixels tab.
 	 */
-	RenderWindow app;
+	FractaleAlgo fractaleAlgo;
 
 };
 

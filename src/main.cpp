@@ -9,9 +9,6 @@ using namespace std;
 int main()
 {
 	FractaleWindow myWindow;
-
-	cout << "hello" << endl;
-
 	myWindow.run();
 
 	return 0;
