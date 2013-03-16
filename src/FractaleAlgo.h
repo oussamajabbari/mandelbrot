@@ -30,15 +30,15 @@ public:
     /**
      * Calculates the pixels of the fractal and fills the image.
      */
-    void calculate(float minX = -2.4,
-                   float maxX =  1.2,
-                   float minY = -1.5,
-                   float maxY =  1.5);
+    void calculate(double minX = -2.4,
+                   double maxX =  1.2,
+                   double minY = -1.5,
+                   double maxY =  1.5);
 
 private:
 
     FractaleImage& fractaleImage;
-    static const int NB_ITERATIONS = 200;
+    static const int NB_ITERATIONS = 255;
 };
 
 #endif /* FRACTALEALGO_H_ */

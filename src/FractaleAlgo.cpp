@@ -30,18 +30,18 @@ FractaleAlgo::~FractaleAlgo() {
 /**
  * Calculates the pixels of the fractal and fills the image.
  */
-void FractaleAlgo::calculate(float minX,
-                             float maxX,
-                             float minY,
-                             float maxY)
+void FractaleAlgo::calculate(double minX,
+                             double maxX,
+                             double minY,
+                             double maxY)
 {
 
 
-    float RC, IC, RZ, IZ, R, I, module;
+    double RC, IC, RZ, IZ, R, I, module;
 
-    for (float X = 0; X < 800; X++)
+    for (double X = 0; X < 800; X++)
     {
-        for (float Y = 0; Y < 600; Y++)
+        for (double Y = 0; Y < 600; Y++)
         {
             RC = minX + (maxX - minX)/800 * X;
             IC = minY + (maxY - minY)/600 * Y;
@@ -49,7 +49,7 @@ void FractaleAlgo::calculate(float minX,
             RZ = 0;
             IZ = 0;
 
-            float a;
+            double a;
             for (a = 0; a < NB_ITERATIONS; a++)
             {
                 R = RZ;
@@ -65,13 +65,18 @@ void FractaleAlgo::calculate(float minX,
             }
 
             if (a == NB_ITERATIONS) {
-                fractaleImage.setPixel(X, Y, sf::Color(0, 0, (module*255/4) + (4/(module*255)), 255));
+                fractaleImage.setPixel(X, Y, sf::Color(0, (module*255/4) + (4/(module*255)), 0, 255));
                 //fractaleImage.setPixel(X, Y, sf::Color(0, 0, module*255/4, 255));
                 //fractaleImage.setPixel(X, Y, sf::Color(0, 0, (4/(module*255)), 255));
+                //fractaleImage.setPixel(X, Y, sf::Color(0, 0, 0, 255));
             }
-            else
-                //fractaleImage.setPixel(X, Y, sf::Color(a*255/NB_ITERATIONS, 0, 0, 255));
-                fractaleImage.setPixel(X, Y, sf::Color(255, 0, 0, 255));
+            else {
+                //fractaleImage.setPixel(X, Y, sf::Color((NB_ITERATIONS - a)*255/NB_ITERATIONS, 0, 0, 255));
+                fractaleImage.setPixel(X, Y, sf::Color( (NB_ITERATIONS - a)*255/NB_ITERATIONS, 0, (a)*255/NB_ITERATIONS, 255));
+                //fractaleImage.setPixel(X, Y, sf::Color(a*255/4, 0, 0, 255));
+                //fractaleImage.setPixel(X, Y, sf::Color(255, 0, 0, 255));
+                //fractaleImage.setPixel(X, Y, sf::Color(0, 0, 0, 255));
+            }
 
         }
     }
