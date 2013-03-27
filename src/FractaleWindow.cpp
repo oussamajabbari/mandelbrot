@@ -7,6 +7,8 @@
 
 #include <iostream>
 #include "FractaleWindow.h"
+//#include "MandelbrotFractaleAlgo.h"
+#include "JuliaFractaleAlgo.h"
 
 using namespace std;
 
@@ -15,8 +17,9 @@ using namespace std;
  */
 FractaleWindow::FractaleWindow() :
     app(VideoMode(width, height, 32), "Une belle fractale"),
-    fractaleImage(width, height, app),
-    fractaleAlgo(fractaleImage)
+    fractaleImage(width, height, app, 4),
+    //fractaleAlgo( new MandelbrotFractaleAlgo(fractaleImage))
+    fractaleAlgo( new JuliaFractaleAlgo(fractaleImage))
 {
     // Activate vertical synchronization in order to have
     // 60 frame/second
@@ -27,6 +30,7 @@ FractaleWindow::FractaleWindow() :
  * Destructor
  */
 FractaleWindow::~FractaleWindow() {
+    delete fractaleAlgo;
 }
 
 /**
@@ -41,7 +45,7 @@ void FractaleWindow::run() {
     float maxY =  1.5;
 
     // Calculate the pixels
-    fractaleAlgo.calculate(minX, maxX, minY, maxY);
+    fractaleAlgo->calculate(minX, maxX, minY, maxY);
 
     // Clear the screen
     app.Clear();
@@ -73,7 +77,7 @@ void FractaleWindow::run() {
                 maxY = minY + event.MouseButton.Y * (maxY - minY) / 600 + (maxY - minY)/8;
 
                 // Calculate, clear and draw
-                fractaleAlgo.calculate(minX, maxX, minY, maxY);
+                fractaleAlgo->calculate(minX, maxX, minY, maxY);
                 //app.Clear();
                 fractaleImage.Draw();
 

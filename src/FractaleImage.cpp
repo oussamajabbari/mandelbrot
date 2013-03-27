@@ -20,12 +20,14 @@ using namespace std;
  */
 FractaleImage::FractaleImage(sf::Uint32 width,
 		                     sf::Uint32 height,
-		                     sf::RenderWindow& app) :
+		                     sf::RenderWindow& app,
+		                     int b) :
 		        width(width),
 		        height(height),
 		        app(app),
 				image(width, height, sf::Color(0, 0, 0)),
-				sprite(image)
+				sprite(image),
+				b(b)
 {
 
 	// Allocate memory for the pixel tab
@@ -43,6 +45,8 @@ FractaleImage::FractaleImage(sf::Uint32 width,
  * Deallocates pixels tab.
  */
 FractaleImage::~FractaleImage() {
+
+    cout << "Destructeur de FractaleImage" << endl;
 
 	// Deallocate memory
 	delete [] pixels;
@@ -62,7 +66,7 @@ void FractaleImage::setPixel(sf::Uint32 xPos, sf::Uint32 yPos,
     ostringstream oss;
 
 	// Check pixel position
-	if (xPos >= width) {
+	if (xPos >= this->width) {
 	    oss << "FractaleImage::setPixel : xPos is out of range : " << xPos;
 		throw out_of_range(oss.str());
 	}

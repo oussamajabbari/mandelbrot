@@ -31,7 +31,8 @@ public:
      */
 	FractaleImage(sf::Uint32 width,
 			      sf::Uint32 height,
-			      sf::RenderWindow& app);
+			      sf::RenderWindow& app,
+			      int b);
 
 	/**
 	 * Destructor.
@@ -79,6 +80,8 @@ private:
 	 * pixels tab
 	 */
 	sf::Uint8 * pixels;
+
+	int b;
 };
 
 #endif /* FRACTALEIMAGE_H_ */

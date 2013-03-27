@@ -9,7 +9,7 @@
 #define FRACTALEWINDOW_H_
 
 #include "FractaleImage.h"
-#include "FractaleAlgo.h"
+#include "AbstractFractaleAlgo.h"
 
 namespace {
     const int width = 800;
@@ -56,7 +56,7 @@ private:
 	 * Algo that will calculate the pixels of the fractale
 	 * and fill the image pixels tab.
 	 */
-	FractaleAlgo fractaleAlgo;
+	AbstractFractaleAlgo * fractaleAlgo;
 
 };
 
